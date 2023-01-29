@@ -65,16 +65,18 @@
         }
 
         if (playerPoints > computerPoints) {
-          return `YOU ARE THE WINNER. You won ${playerPoints} out of 5 games! The computer won ${computerPoints} games, and there were ${tiePoints} ties.`;
+          return `YOU ARE THE WINNER. You won ${playerPoints} out of 5 games! 
+          The computer won ${computerPoints} games, and there were ${tiePoints} ties.`;
         } else if (playerPoints < computerPoints) {
-          return `YOU ARE THE LOSER. The computer won ${computerPoints} games, you won ${playerPoints} games, and there were ${tiePoints} ties.`;
+          return `YOU ARE THE LOSER. The computer won ${computerPoints} games, 
+          you won ${playerPoints} games, and there were ${tiePoints} ties.`;
         } else if (playerPoints === computerPoints) {
-          return `IT'S A TIE!! You won ${playerPoints} games, the computer won ${computerPoints} games, and there were ${tiePoints} ties.`;
+          return `IT'S A TIE!! You won ${playerPoints} games, 
+          the computer won ${computerPoints} games, and there were ${tiePoints} ties.`;
         }
       }
-
       let playerSelection = prompt("Please type 'rock', 'paper', or 'scissors'.");
-      console.log(game());
+      console.log(game()); 
     </script>
   </body>
 </html>
