@@ -3,77 +3,36 @@
   <head>
     <meta charset="UTF-8">
     <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="rps-script.js" defer></script>
   </head>
 
   <body>
-    <script>
-      function getComputerChoice() {
-        let randomChoice = Math.random() * 3;
-        if (randomChoice > 2) {
-          return 'rock';
-        } else if (randomChoice > 1) {
-          return 'paper';
-        } else if (randomChoice > 0) {
-          return 'scissors';
-        }
-      }
+    <div class="scoreboard">
+      <div class="player">
+        <h1>Player</h1>
+        <p class="player-score score">0</p>
+      </div>
+      
+      <div class="computer">
+        <h1>Computer</h1>
+        <p class="computer-score score">0</p>
+      </div>
+    </div>
+    
+    <div class="result"></div>
+    
+    <div class="display">
+      <div class="player-choice"></div>
+      <div class="computer-choice"></div>
+    </div>
 
-      function playRound(playerSelection, computerSelection) {
-        let playerSelect = playerSelection.toLowerCase();
-
-        if (playerSelect === computerSelection) {
-          return `It's a tie! ${playerSelect} ties with ${computerSelection}.`;
-        } else if (playerSelect === 'rock') {
-          if (computerSelection === 'paper') {
-            return `You lose! ${computerSelection} beats ${playerSelect}.`;
-          } else if (computerSelection === 'scissors') {
-            return `You win! ${playerSelect} beats ${computerSelection}.`;
-          }
-        } else if (playerSelect === 'paper') {
-          if (computerSelection === 'scissors') {
-            return `You lose! ${computerSelection} beats ${playerSelect}.`;
-          } else if (computerSelection === 'rock') {
-            return `You win! ${playerSelect} beats ${computerSelection}.`;
-          }
-        } else if (playerSelect === 'scissors') {
-          if (computerSelection === 'rock') {
-            return `You lose! ${computerSelection} beats ${playerSelect}.`;
-          } else if (computerSelection === 'paper') {
-            return `You win! ${playerSelect} beats ${computerSelection}.`;
-          }
-        } else {
-          return `ERROR!! INCORRECT INPUT!!`;
-        }
-      }
-
-      function game() {
-        let playerPoints = 0;
-        let computerPoints = 0;
-        let tiePoints = 0;
-
-        for (let i = 0; i < 5; i++) {
-          let round = playRound(playerSelection, getComputerChoice());
-          if (round.includes('win')) {
-            playerPoints++;
-          } else if (round.includes('lose')) {
-            computerPoints++;
-          } else if (round.includes('tie')) {
-            tiePoints++;
-          } else if (round.includes('ERROR')) {
-            return round;
-          }
-        }
-
-        if (playerPoints > computerPoints) {
-          return `YOU ARE THE WINNER. You won ${playerPoints} out of 5 games! The computer won ${computerPoints} games, and there were ${tiePoints} ties.`;
-        } else if (playerPoints < computerPoints) {
-          return `YOU ARE THE LOSER. The computer won ${computerPoints} games, you won ${playerPoints} games, and there were ${tiePoints} ties.`;
-        } else if (playerPoints === computerPoints) {
-          return `IT'S A TIE!! You won ${playerPoints} games, the computer won ${computerPoints} games, and there were ${tiePoints} ties.`;
-        }
-      }
-      let playerSelection = prompt("Please type 'rock', 'paper', or 'scissors'.");
-      console.log(game()); 
-    </script>
+    <div class="options">
+      <button class="rock choice">Rock</button>
+      <button class="paper choice">Paper</button>
+      <button class="scissors choice">Scissors</button>
+    </div>
+    
+    <button id="restart">Restart</button>
   </body>
-</html>
+  </html>
